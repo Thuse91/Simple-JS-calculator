@@ -9,7 +9,6 @@ function add(){
        document.querySelector(".output").innerHTML = previousInput + parseInt(input.value)
        previousInput += parseInt(input.value);
     }
-    document.querySelector(".input").value = "";
 }
 
 function sub(){     
@@ -20,7 +19,6 @@ function sub(){
        document.querySelector(".output").innerHTML = previousInput - parseInt(input.value)
        previousInput -= parseInt(input.value);
     }
-    document.querySelector(".input").value = "";
 }
 
 function mult(){     
@@ -31,7 +29,6 @@ function mult(){
        document.querySelector(".output").innerHTML = previousInput * parseInt(input.value)
        previousInput *= parseInt(input.value);
     }
-    document.querySelector(".input").value = "";
 }
 
 function div(){     
@@ -42,7 +39,6 @@ function div(){
        document.querySelector(".output").innerHTML = previousInput / parseInt(input.value)
        previousInput /= parseInt(input.value);
     }
-    document.querySelector(".input").value = "";
 }
 
 function mod(){     
@@ -53,14 +49,39 @@ function mod(){
        document.querySelector(".output").innerHTML = previousInput % parseInt(input.value)
        previousInput %= parseInt(input.value);
     }
-    document.querySelector(".input").value = "";
+}
+
+function neg(){     
+    if(previousInput === null){
+        document.querySelector(".output").innerHTML = input.value
+        previousInput = parseInt(input.value);
+    }else if (previousInput > 0)
+        { document.querySelector(".output").innerHTML = -Math.abs(previousInput)       
+    }else {
+        console.log("fail")
+    }
 }
 
 
+function pos(){     
+    if(previousInput === null){
+        document.querySelector(".output").innerHTML = input.value
+        previousInput = parseInt(input.value);
+    }else if (previousInput >= -1)
+        { document.querySelector(".output").innerHTML = Math.abs(previousInput)       
+    }else {
+        console.log("fail")
+    }
+}
+
+function cinput(){
+    document.querySelector(".input").value = "";
+    console.log("Cleared input")
+}
 
 function reset(){
     previousInput = null;
     document.querySelector(".input").value = "";
     document.querySelector(".output").innerHTML = "";
-    console.log(input)
+    console.log("Cleared input+output")
 }
